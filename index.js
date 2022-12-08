@@ -60,12 +60,12 @@ const addFavoriteButton = document.querySelector("#add-fav-button");
 const removeFavoriteButton = document.querySelector("#remove-fav-button");
 
 addHotkeyListener("f", () => {
-  if (removeFavoriteButton.style.display === "none") {
-    clickElement(addFavoriteButton);
-    return;
-  }
-  if (addFavoriteButton.style.display === "none") {
-    clickElement(removeFavoriteButton);
-    return;
+  switch (window.getComputedStyle(addFavoriteButton).display) {
+    case "inline-block":
+      clickElement(addFavoriteButton);
+      break;
+    case "none":
+      clickElement(removeFavoriteButton);
+      break;
   }
 });
