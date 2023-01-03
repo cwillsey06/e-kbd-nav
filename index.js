@@ -17,9 +17,25 @@ const downloadButton = document.querySelector("#image-download-link a");
 const returnToSearchPageLink = document.querySelector(".search-name a");
 const searchBar = document.querySelector("#tags");
 
+const commandSilencingElements = [
+  HTMLInputElement,
+  HTMLTextAreaElement,
+];
+
+function shouldSilenceCommands(event) {
+  if (event.repeat) return true;
+  if (document.activeElement) {
+    return commandSilencingElements.some(element => {
+      return document.activeElement instanceof element;
+    });
+  } else {
+    return false;
+  }
+}
+
 function addHotkeyListener(key, fn) {
   document.addEventListener("keydown", (event) => {
-    if (event.repeat) return;
+    if (shouldSilenceCommands(event)) return;
     if (event.key === key) {
       fn();
     }
