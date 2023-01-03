@@ -1,10 +1,15 @@
-"use strict";
+/*
 
-/* Coltrane Willsey	  *
- * 2022-12-07 [21:08] */
+  e-kbd-nav
+  2022-12-07 [21:08]
 
-// Copyright (C) 2022 Coltrane Willsey (cwillsey06@gmail.com)
-// Everyone is permitted to copy and distribute copies of this file under GNU GPL-3.0
+  Userscript to enable keyboard navigation on e621 / e926
+  
+  Contributors:
+    cwillsey06,
+    pupgray
+
+*/
 
 const previousLink = document.querySelector("a.prev");
 const nextLink = document.querySelector("a.next");
